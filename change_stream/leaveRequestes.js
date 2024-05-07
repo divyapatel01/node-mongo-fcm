@@ -6,7 +6,7 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-export function notifyUser(deviceToken, leaveRequestDetails) {
+function notifyUser(deviceToken, leaveRequestDetails) {
   const message = {
     notification: {
       title: "Leave Request Update",
