@@ -1,6 +1,12 @@
 const express = require("express");
 const LeaveRequest = require("../models/LeaveRequest");
 const router = express.Router();
+const admin = require("firebase-admin");
+const serviceAccount = require("../fcm-demo-54c7d-firebase-adminsdk-4mgtc-64e892735c.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 function notifyUser(deviceToken, leaveRequestDetails) {
   const message = {
